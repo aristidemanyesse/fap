@@ -30,3 +30,17 @@ def stand(request):
     if request.method == "GET":
         ctx = {}
         return ctx
+    
+    
+@render_to('vitrineApp/unes.html')
+def unes(request):
+    if request.method == "GET":
+        ctx = {}
+        return ctx
+    
+    
+@render_to('vitrineApp/contacts.html')
+def contacts(request):
+    if request.method == "GET":
+        ctx = {}
+        return ctx

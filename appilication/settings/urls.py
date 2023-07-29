@@ -26,5 +26,7 @@ def redir(request):
 urlpatterns = [
     path('', redir),
     path('fap2023/', include('vitrineApp.urls')),
+    path('fap2023/boutique/', include('boutiqueApp.urls')),
+    path('fap2023/shop/', include('boutiqueApp.urls')),
     path('admin/', admin.site.urls),
 ]
