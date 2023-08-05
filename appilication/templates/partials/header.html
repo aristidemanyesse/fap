@@ -1,10 +1,44 @@
-<div class="fables-transparent py-3 py-lg-0">
+{% load static %}
+
+<!-- Start Top Header -->
+<div class="fables-forth-background-color fables-top-header-signin">
+    <div class="container">
+        <div class="row" id="top-row">
+            <div class="col-12 col-sm-2 col-lg-5">
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle border-0 bg-transparent font-13 lang-dropdown-btn pl-0" type="button" id="dropdownLangButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   langue
+                  </button>
+                  <div class="dropdown-menu p-0 fables-forth-background-color rounded-0 m-0 border-0 lang-dropdown" aria-labelledby="dropdownLangButton">
+                        {% comment %} <a class="dropdown-item white-color font-13 fables-second-hover-color" href="#">
+                        <img src="{% static 'assets/custom/images/england.png' %}" alt="england flag" class="mr-1"> English</a> {% endcomment %}
+                        <a class="dropdown-item white-color font-13 fables-second-hover-color" href="">
+                        <img src="{% static 'assets/custom/images/France.png' %}" alt="england flag" class="mr-1"> Français</a> 
+                  </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-sm-5 col-lg-4 text-right">
+                <p class="fables-third-text-color font-13"><span class="fables-iconphone"></span> Phone :  (888) 6000 6000 - (888) 6000 6000</p>
+            </div>
+            <div class="col-12 col-sm-5 col-lg-3 text-right">
+                <p class="fables-third-text-color font-13"><span class="fables-iconemail"></span> Email: Design@domain.com</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+ 
+<!-- /End Top Header -->
+
+
+<div class="fables-navigation fables-main-background-color py-3 py-lg-0">
     <div class="container">
            <div class="row">
                <div class="col-12 col-md-10 pr-md-0">                       
                    <nav class="navbar navbar-expand-md btco-hover-menu py-lg-2">
 
-                        <a class="navbar-brand fables-logo-brand pl-0" href="index.html"><img src="assets/custom/images/fables-logo.png" alt="Fables Template" class="fables-logo"></a>
+                        <a class="navbar-brand fables-logo-brand pl-0" href="{% url 'vitrineApp:main' %}"><img src="{% static 'assets/custom/images/fables-logo.png' %}" alt="Fables Template" class="fables-logo"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fablesNavDropdown" aria-controls="fablesNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="fables-iconmenu-icon text-white font-16"></span>
                         </button>
@@ -54,7 +88,7 @@
                </div>
                <div class="col-5 col-md-2 pr-md-0 icons-header-mobile">
 
-                   <div class="fables-header-icons pt-lg-4 text-right">
+                   <div class="fables-header-icons pt-lg-2 text-right">
                         
                         <a href="#" class="open-search fables-third-text-color fables-mega-menu-btn px-4  fables-second-hover-color">
                                     <span class="fables-iconsearch-icon"></span>
@@ -70,7 +104,7 @@
                                              <p class="fables-second-text-color semi-font mb-4 font-17">(2) Items in my cart</p>
                                              <div class="row mx-0 mb-3">
                                                  <div class="col-4 p-0">
-                                                     <a href="#"><img src="assets/custom/images/sml1.jpg" alt="" class="w-100"></a>
+                                                     <a href="#"><img src="{% static 'assets/custom/images/sml1.jpg" alt="" class="w-100"></a>
                                                  </div>
                                                  <div class="col-8">
                                                      <h2><a href="#" class="fables-main-text-color font-13 d-block fables-main-hover-color">LUIS LEATHER DRIVING</a></h2>
@@ -80,7 +114,7 @@
                                              </div>
                                              <div class="row mx-0 mb-3">
                                                  <div class="col-4 p-0">
-                                                     <a href="#"><img src="assets/custom/images/sml1.jpg" alt="" class="w-100"></a>
+                                                     <a href="#"><img src="{% static 'assets/custom/images/sml1.jpg" alt="" class="w-100"></a>
                                                  </div>
                                                  <div class="col-8">
                                                      <h2><a href="#" class="fables-main-text-color font-13 d-block fables-main-hover-color">LUIS LEATHER DRIVING</a></h2>
