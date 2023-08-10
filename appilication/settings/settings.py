@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "vitrineApp",
     "coreApp",
     "boutiqueApp",
+    "galerieApp",
 ]
 
 MIDDLEWARE = [

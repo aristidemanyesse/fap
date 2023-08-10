@@ -33,7 +33,7 @@ class Client(BaseModel):
     prenoms = models.CharField(max_length = 255, default="", null = True, blank=True)
     email   = models.EmailField(null = True, blank=True)
     contact = models.CharField(max_length = 255, default="", null = True, blank=True)
-    adreese = models.CharField(max_length = 255, default="", null = True, blank=True)
+    adresse = models.CharField(max_length = 255, default="", null = True, blank=True)
     
     class Meta:
         ordering = ['name']
