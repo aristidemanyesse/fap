@@ -29,5 +29,6 @@ urlpatterns = [
     path('fap2023/boutique/', include('boutiqueApp.urls')),
     path('fap2023/shop/', include('boutiqueApp.urls')),
     path('fap2023/galerie/', include('galerieApp.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', include('adminApp.urls')),
+    path('root/', admin.site.urls),
 ]

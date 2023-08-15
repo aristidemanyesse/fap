@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    "adminApp",
     "vitrineApp",
     "coreApp",
     "boutiqueApp",
@@ -79,10 +80,19 @@ WSGI_APPLICATION = 'settings.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # },
+    
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE'    : 'django.contrib.gis.db.backends.mysql',
+        'HOST'      : os.getenv("DB_HOST", "0.0.0.0"),
+        'PORT'      : os.getenv("DB_PORT", 3306),
+        'USER'      : os.getenv("DB_USER", "root"),
+        'PASSWORD'  : os.getenv("DB_PASSWORD", "12345678"),
+        'NAME'      : os.getenv("DB_NAME", "ipi"),
+    },
 }
 
 
@@ -129,3 +139,14 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'   # Engine (default)
+SESSION_COOKIE_NAME = "sessionid"                       #  Session's cookie is saved on the browser, namely: sessionId = random string (default)
+SESSION_COOKIE_PATH = "/"                               #  Session's cookie saved path (default)
+SESSION_COOKIE_DOMAIN = None                             #  Session's cookie saved domain (default)
+SESSION_COOKIE_SECURE = False                            #  Whether HTTPS is transferred for cookies (default)
+SESSION_COOKIE_HTTPONLY = True                           #  Whether the session's cookie only supports HTTP transmission (default)
+SESSION_COOKIE_AGE = 1209600                             #  Session's cookie failure date (2 weeks) (default)
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False                  #  Whether to close your browser makes the session expire (default)
+SESSION_SAVE_EVERY_REQUEST = True  
