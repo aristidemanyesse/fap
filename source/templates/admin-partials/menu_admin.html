@@ -20,29 +20,26 @@
 
         <ul class="nav">
             <li><a href="{% url 'adminApp:dashboard' %}"><i class="fa fa-windows"></i> <span>Tableau de Bord</span></a></li>
-            <li class="has-sub " module="adminApp">
-                <a href="javascript:;">
-                    <b class="caret pull-right"></b>
-                    <i class="fa fa-users"></i>
-                    <span>Utilisateurs</span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="" page="liste"><a href="{% url 'adminApp:dashboard' %}">Voir la liste</a></li>
-                    <li page="map"><a href="{% url 'adminApp:dashboard' %}">cartographie</a></li>
-                </ul>
-            </li>
+
+            <li page="informations"><a href="{% url 'adminApp:events' %}"><i class="fa fa-info"></i> <span>Evenements</span></a></li>
+            <li page="informations"><a href="{% url 'adminApp:participants' %}"><i class="fa fa-users"></i> <span>Participants</span></a></li>
+            <li page="informations"><a href="{% url 'adminApp:actualites' %}"><i class="fa fa-file"></i> <span>Actualités</span></a></li>
+            <li page="informations"><a href="{% url 'adminApp:galerie' %}"><i class="fa fa-image"></i> <span>Galerie</span></a></li>
+
             <li class="has-sub " module="adminApp">
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
                     <i class="fa fa-university"></i>
-                    <span>Officines</span>
+                    <span>La Boutique</span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="" page="liste"><a href="{% url 'adminApp:dashboard' %}">Voir la liste</a></li>
-                    <li page="map"><a href="{% url 'adminApp:dashboard' %}">cartographie</a></li>
+                    <li class="" page="liste"><a href="{% url 'adminApp:produits' %}">Produits</a></li>
+                    <li page="map"><a href="{% url 'adminApp:dashboard' %}">Commandes</a></li>
                 </ul>
             </li>
-            <li page="medicaments"><a href="{% url 'adminApp:dashboard' %}"><i class="fa fa-cubes"></i> <span>Médicaments</span></a></li>
+            
+            <li page="informations"><a href="{% url 'adminApp:stands' %}"><i class="fa fa-handshake-o"></i> <span>Inscription Stands</span></a></li>
+            <li page="informations"><a href="{% url 'adminApp:dashboard' %}"><i class="fa fa-info"></i> <span>Informations</span></a></li>
 
             {% comment %} <li page="parametres"><a href="{% url 'produitApp:medicaments' %}"><i class="fa fa-cogs"></i> <span>Paramètres</span></a></li> {% endcomment %}
 

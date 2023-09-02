@@ -17,18 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 def redir(request):
-    return redirect("fap2023/")
+    return redirect("/")
 
 
 urlpatterns = [
-    path('', redir),
-    path('fap2023/', include('vitrineApp.urls')),
+    path('', include('vitrineApp.urls')),
     path('fap2023/boutique/', include('boutiqueApp.urls')),
     path('fap2023/shop/', include('boutiqueApp.urls')),
     path('fap2023/galerie/', include('galerieApp.urls')),
+    path('core/', include('coreApp.urls')),
     path('admin/', include('adminApp.urls')),
     path('root/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

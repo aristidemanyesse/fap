@@ -4,6 +4,10 @@ from annoying.decorators import render_to
 import json
 from django.core.serializers import serialize
 from django.contrib.auth import authenticate, logout
+
+from galerieApp.models import CategorieItem, Item
+from boutiqueApp.models import Categorie, Produit
+from vitrineApp.models import Actualite, Evenement, Jour, Participant, Stand, TypeParticipant
 from .models import *
 from datetime import datetime, timedelta
 # Create your views here.
@@ -64,17 +68,110 @@ def dashboard(request):
 
 
         
-@render_to('adminApp/dashboard_officine.html')
-def dashboard_officine(request, id):
+@render_to('adminApp/galerie.html')
+def galerie(request):
     if request.method == "GET":
-        # officine = get_object_or_404(Officine, pk=id)
-        # demandes = officine.officine_demande.filter(deleted = False, is_valided = None)
-        # produits = Produit.objects.filter(deleted = False, type = TypeProduit.objects.get(etiquette = TypeProduit.MEDICAMENT))
+        categories = CategorieItem.objects.filter(deleted = False)
+        items = Item.objects.filter(deleted = False)
         ctx = {
-            # "officine": officine,
-            # # "produits": produits,
+            "categories": categories,
+            "items": items,
             # "officinedemandes": demandes,
         }
         return ctx
           
         
+        
+@render_to('adminApp/participants.html')
+def participants(request):
+    if request.method == "GET":
+        types = TypeParticipant.objects.filter(deleted = False)
+        participants = Participant.objects.filter(deleted = False)
+        ctx = {
+            "types": types,
+            "participants": participants,
+        }
+        return ctx
+        
+        
+        
+        
+@render_to('adminApp/actualites.html')
+def actualites(request):
+    if request.method == "GET":
+        actualites = Actualite.objects.filter(deleted = False)
+        ctx = {
+            "actualites": actualites,
+        }
+        return ctx
+        
+@render_to('adminApp/actualite.html')
+def actualite(request, id):
+    if request.method == "GET":
+        actualite = get_object_or_404(Actualite, id = id, deleted = False)
+        ctx = {
+            "actualite": actualite,
+        }
+        return ctx
+    
+@render_to('adminApp/write.html')
+def write(request):
+    if request.method == "GET":
+        ctx = {}
+        return ctx
+          
+        
+        
+        
+@render_to('adminApp/events.html')
+def events(request):
+    if request.method == "GET":
+        events = Evenement.objects.filter(deleted = False)
+        jours = Jour.objects.filter(deleted = False)
+        ctx = {
+            "events": events,
+            "jours": jours,
+        }
+        return ctx
+          
+        
+        
+        
+@render_to('adminApp/stands.html')
+def stands(request):
+    if request.method == "GET":
+        stands = Stand.objects.filter(deleted = False)
+        ctx = {
+            "stands": stands,
+        }
+        return ctx
+          
+
+        
+        
+@render_to('adminApp/commandes.html')
+def commandes(request):
+    if request.method == "GET":
+        types = TypeParticipant.objects.filter(deleted = False)
+        participants = Participant.objects.filter(deleted = False)
+        ctx = {
+            "types": types,
+            "participants": participants,
+            # "officinedemandes": demandes,
+        }
+        return ctx
+          
+          
+        
+        
+@render_to('adminApp/produits.html')
+def produits(request):
+    if request.method == "GET":
+        categories = Categorie.objects.filter(deleted = False)
+        produits = Produit.objects.filter(deleted = False)
+        ctx = {
+            "categories": categories,
+            "produits": produits,
+        }
+        return ctx
+          

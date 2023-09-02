@@ -8,7 +8,21 @@ app_name = "adminApp"
 urlpatterns = [
     path('', views.dashboard, name="dashboard"),
     path('main/dashboard', views.dashboard, name="dashboard"),
-    path('<uuid:id>/', views.dashboard_officine, name="dashboard_officine"),
+    path('galerie/', views.galerie, name="galerie"),
+    path('participants/', views.participants, name="participants"),
+    
+    path('actualites/', views.actualites, name="actualites"),
+    path('actualites/<uuid:id>/', views.actualite, name="actualite"),
+    path('actualites/write/', views.write, name="write"),
+    
+    path('events/', views.events, name="events"),
+    
+    path('stands/', views.stands, name="stands"),
+    
+    path('boutique/produits/', views.produits, name="produits"),
+    path('boutique/commandes/', views.commandes, name="commandes"),
+    
+    
     path('login/', views.connexion, name="login"),
     path('locked', views.locked, name="locked"),
     path('logout/', views.deconnexion, name="logout"),

@@ -15,11 +15,11 @@ class Produit(BaseModel):
     name          = models.CharField(max_length = 255, default="", null = True, blank=True)
     code          = models.CharField(max_length = 255, default="", null = True, blank=True)
     price         = models.IntegerField(default = 0)
-    description   = models.TextField(default = "")
-    image1        = models.ImageField(max_length = 255, upload_to = "media/images/produits/", default='media/images/produits/default.png', null = True, blank=True)
-    image2        = models.ImageField(max_length = 255, upload_to = "media/images/produits/", default='media/images/produits/default.png', null = True, blank=True)
-    image3        = models.ImageField(max_length = 255, upload_to = "media/images/produits/", default='media/images/produits/default.png', null = True, blank=True)
-    image4        = models.ImageField(max_length = 255, upload_to = "media/images/produits/", default='media/images/produits/default.png', null = True, blank=True)
+    description   = models.TextField(default = "", null = True, blank=True)
+    image1        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
+    image2        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
+    image3        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
+    image4        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
     categorie     = models.ForeignKey(Categorie, on_delete = models.CASCADE, null = True, blank=True, related_name="categorie_produit")
     
     class Meta:

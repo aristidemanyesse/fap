@@ -11,15 +11,53 @@ def main(request):
         return ctx
     
     
-@render_to('vitrineApp/programme.html')
-def programme(request):
+
+@render_to('vitrineApp/mna.html')
+def mna(request):
+    if request.method == "GET":
+        ctx = {}
+        return ctx
+    
+    
+
+@render_to('vitrineApp/fap.html')
+def fap(request):
+    if request.method == "GET":
+        ctx = {}
+        return ctx
+    
+
+@render_to('vitrineApp/afc.html')
+def afc(request):
+    if request.method == "GET":
+        ctx = {}
+        return ctx
+    
+    
+
+@render_to('vitrineApp/fwa.html')
+def fwa(request):
+    if request.method == "GET":
+        ctx = {}
+        return ctx
+    
+    
+@render_to('vitrineApp/billetterie.html')
+def billetterie(request):
     if request.method == "GET":
         ctx = {}
         return ctx
     
     
 @render_to('vitrineApp/participants.html')
-def participants(request):
+def danse(request):
+    if request.method == "GET":
+        ctx = {}
+        return ctx
+    
+    
+@render_to('vitrineApp/participants.html')
+def fica(request):
     if request.method == "GET":
         ctx = {}
         return ctx
@@ -32,11 +70,11 @@ def stand(request):
         return ctx
     
     
-@render_to('vitrineApp/unes.html')
-def unes(request):
-    if request.method == "GET":
-        ctx = {}
-        return ctx
+# @render_to('vitrineApp/unes.html')
+# def unes(request):
+#     if request.method == "GET":
+#         ctx = {}
+#         return ctx
     
     
 @render_to('vitrineApp/contacts.html')
