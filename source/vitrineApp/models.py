@@ -69,7 +69,12 @@ class Stand(BaseModel):
     
 
 
-
+class Faq(BaseModel):
+    question    = models.TextField(default="", null = True, blank=True)
+    reponse     = models.TextField(default="", null = True, blank=True)
+    
+    def __str__(self):
+        return self.question
 
 
 @signals.pre_save(sender=Evenement)

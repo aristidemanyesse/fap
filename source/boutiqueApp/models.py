@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import  Q
 from coreApp.models import BaseModel, Etat
+from vitrineApp.models import Faq
 
 
 
@@ -16,6 +17,7 @@ class Produit(BaseModel):
     code          = models.CharField(max_length = 255, default="", null = True, blank=True)
     price         = models.IntegerField(default = 0)
     description   = models.TextField(default = "", null = True, blank=True)
+    recette       = models.TextField(default = "", null = True, blank=True)
     image1        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
     image2        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
     image3        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
@@ -24,6 +26,14 @@ class Produit(BaseModel):
     
     class Meta:
         ordering = ['name']
+
+
+class FaqProduit(BaseModel):
+    faq       = models.ForeignKey(Faq, on_delete = models.CASCADE, null = True, blank=True, related_name="faq_produit")
+    produit   = models.ForeignKey(Produit, on_delete = models.CASCADE, null = True, blank=True, related_name="produit_faq")
+    
+    def __str__(self):
+        return str(self.produit)
 
 
 

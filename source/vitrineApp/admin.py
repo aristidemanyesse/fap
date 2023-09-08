@@ -63,3 +63,12 @@ class EvenementAdmin(admin.ModelAdmin):
         ('created_at', DateFieldListFilter),
     )
     list_display = ["name", "jour", "description",  "deleted",  "created_at"]
+
+
+@admin.register(Faq)
+class FaqAdmin(admin.ModelAdmin):
+    empty_value_display = '-'
+    list_filter = (
+        ('created_at', DateFieldListFilter),
+    )
+    list_display = ["id", "question", "created_at"]
