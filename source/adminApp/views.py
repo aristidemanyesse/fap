@@ -114,10 +114,22 @@ def actualite(request, id):
         }
         return ctx
     
+    
+    
 @render_to('adminApp/write.html')
-def write(request):
+def new(request):
     if request.method == "GET":
         ctx = {}
+        return ctx
+    
+    
+@render_to('adminApp/update_produit.html')
+def update_produit(request, id):
+    if request.method == "GET":
+        produit = get_object_or_404(Produit, id = id, deleted = False)
+        ctx = {
+            "produit": produit
+        }
         return ctx
           
         
@@ -175,3 +187,25 @@ def produits(request):
         }
         return ctx
           
+          
+          
+
+        
+@render_to('adminApp/test.html')
+def test(request):
+    if request.method == "GET":
+        ctx = {
+            "test": "test",
+        }
+        return ctx
+          
+
+        
+# @render_to('adminApp/payement_checkout.html')
+def payement_checkout(request):
+    if request.method == "POST":
+        print(request.POST)
+        ctx = {
+            "test": "test",
+        }
+        return ctx

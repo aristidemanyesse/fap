@@ -9,6 +9,7 @@ $(function () {
         url = "/core/ajax/save/";
         var formdata = new FormData($(this)[0]);
         formdata.append('modelform', form);
+        console.log(form)
         $.post({ url: url, data: formdata, contentType: false, processData: false }, function (data) {
             if (data.status) {
                 if (reload == "false") {

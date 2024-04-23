@@ -8,7 +8,7 @@
 				<!-- begin #content -->
                 <div id="content" class="content">
                    
-                    <h1 class="page-header">Ajout nouveau produit <small>...</small></h1>
+                    <h1 class="page-header">Modification du produit <small>...</small></h1>
                     <!-- end page-header -->
                     <br>
                     <!-- begin row -->
@@ -20,41 +20,41 @@
                                 <div class="">
                                     <label>{% translate "Nom du produit" %} </label>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="name">
+                                        <input type="text" class="form-control" value="{{produit.name}}" name="name">
                                     </div>
                                 </div> <br>
                                 <div class="">
                                     <label>{% translate "Description breve du produit" %} </label>
                                     <div class="form-group">
-                                        <textarea rows="4" class="form-control" name="description"></textarea>
+                                        <textarea rows="4" class="form-control"  name="description">{{produit.description}}</textarea>
                                     </div>
                                 </div> <br>
                                 <div class="">
                                     <label>{% translate "Prix" %} </label>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="price">
+                                        <input type="number" class="form-control" value="{{produit.price}}" name="price">
                                     </div>
                                 </div> <br>
                                 <div class="">
                                     <label>{% translate "Photo d'illustration 1" %} </label>
                                     <div class="">
-                                        <img style="width: 100px;" src="{{element.image.url}}" class="img-thumbnail logo">
+                                        <img style="width: 100px;" src="{{produit.image1.url}}" class="img-thumbnail logo">
                                         <input class="hide" type="file" name="image1">
                                         <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i></button>
                                     </div>
                                 </div> <br>
                                 <div class="">
-                                    <label>{% translate "Photo d'illustration 1" %} </label>
+                                    <label>{% translate "Photo d'illustration 2" %} </label>
                                     <div class="">
-                                        <img style="width: 100px;" src="{{element.image.url}}" class="img-thumbnail logo">
+                                        <img style="width: 100px;" src="{{produit.image2.url}}" class="img-thumbnail logo">
                                         <input class="hide" type="file" name="image2">
                                         <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i></button>
                                     </div>
                                 </div> <br>
                                 <div class="">
-                                    <label>{% translate "Photo d'illustration 1" %} </label>
+                                    <label>{% translate "Photo d'illustration 3" %} </label>
                                     <div class="">
-                                        <img style="width: 100px;" src="{{element.image.url}}" class="img-thumbnail logo">
+                                        <img style="width: 100px;" src="{{produit.image3.url}}" class="img-thumbnail logo">
                                         <input class="hide" type="file" name="image3">
                                         <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i></button>
                                     </div>
@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="panel-body p-0">
                                         <form action="" method="POST" name="summernote_form">
-                                            <textarea class="summernote" name="code"></textarea>
+                                            <textarea class="summernote" name="code">{{produit.code}}</textarea>
                                         </form>
                                     </div>
                                 </div>
@@ -89,6 +89,8 @@
                             <!-- begin col-2 -->
                           
                             <!-- end col-2 -->
+                            <input type="hidden" name="id" value="{{produit.id}}" >
+
                         </div>
                     </form>
                     <!-- end row -->

@@ -14,7 +14,7 @@ class Categorie(BaseModel):
 
 class Produit(BaseModel):
     name          = models.CharField(max_length = 255, default="", null = True, blank=True)
-    code          = models.CharField(max_length = 255, default="", null = True, blank=True)
+    code          = models.TextField(default="", null = True, blank=True)
     price         = models.IntegerField(default = 0)
     description   = models.TextField(default = "", null = True, blank=True)
     recette       = models.TextField(default = "", null = True, blank=True)

@@ -13,6 +13,7 @@ graphene-django-extras = "*"
 graphene-django = "*"
 django-annoying = "*"
 pillow = "*"
+stripe = "*"
 
 [dev-packages]
 

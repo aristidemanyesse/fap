@@ -2,7 +2,7 @@
 from django.shortcuts import redirect
 from django.urls import path
 
-from . import views
+from . import views, ajax
 
 app_name = "adminApp"
 urlpatterns = [
@@ -13,7 +13,6 @@ urlpatterns = [
     
     path('actualites/', views.actualites, name="actualites"),
     path('actualites/<uuid:id>/', views.actualite, name="actualite"),
-    path('actualites/write/', views.write, name="write"),
     
     path('events/', views.events, name="events"),
     
@@ -21,6 +20,11 @@ urlpatterns = [
     
     path('boutique/produits/', views.produits, name="produits"),
     path('boutique/commandes/', views.commandes, name="commandes"),
+    path('boutique/article/new/', views.new, name="new"),
+    path('boutique/article/update_produit/<uuid:id>/', views.update_produit, name="update_produit"),
+    path('boutique/article/payement/stripeTokenHandler/', ajax.stripeTokenHandler, name="stripeTokenHandler"),
+    path('boutique/test/', views.test, name="test"),
+    path('boutique/payement_checkout/', views.payement_checkout, name="payement_checkout"),
     
     
     path('login/', views.connexion, name="login"),
